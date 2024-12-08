@@ -47,7 +47,7 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(8,6))
 plot_tree(dt,feature_names=x.columns,class_names=['salary','left'],filled=T
 plt.show()
-
+```
 
 
 ## Output:
