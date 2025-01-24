@@ -31,11 +31,11 @@ data["left"].value_counts()
 le=LabelEncoder()
 data["salary"]=le.fit_transform(data["salary"])
 # print(data.head())
-x=data[["satisfaction_level","last_evaluation","number_project","average_mo
+x=data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_sprmd_company","work_accident","promotion_last_5years","salary"]]
 # print(x.head()) 
 y=data["left"]
 from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_st
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=100)
 from sklearn.tree import DecisionTreeClassifier
 dt=DecisionTreeClassifier(criterion="entropy")
 dt.fit(x_train,y_train)
@@ -46,7 +46,7 @@ accuracy=metrics.accuracy_score(y_test,y_pred)
 dt.predict([[0.5,0.8,9,260,6,0,1,2]])
 import matplotlib.pyplot as plt
 plt.figure(figsize=(8,6))
-plot_tree(dt,feature_names=x.columns,class_names=['salary','left'],filled=T
+plot_tree(dt,feature_names=x.columns,class_names=['salary','left'],filled=True)
 plt.show()
 ```
 
